@@ -1,0 +1,17 @@
+/* Style the body */
+body {
+    font-family: Arial;
+    margin: 0;
+  }
+  
+  /* Header/Logo Title */
+  .header {
+    padding: 20px;
+    text-align: front;
+    background: cornflowerblue;
+    color: white;
+    font-size: 20px;
+  }
+  
+  /* Page Content */
+  .content {padding:20px;}
