@@ -3,9 +3,14 @@ body {
     font-family: Arial;
     margin: 0;
    background-color: lightblue;
+
   }
   
+ 
   /* Header/Logo Title */
-   
+   header{
+    background-color: lightblue;
+    
+   }
   /* Page Content */
   
