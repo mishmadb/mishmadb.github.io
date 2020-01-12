@@ -2,13 +2,10 @@
 body {
     font-family: Arial;
     margin: 0;
+   background-color: lightblue;
   }
   
   /* Header/Logo Title */
-  h1{
-    color: navy;
-    margin-left:20px;
-   }
-  
+   
   /* Page Content */
-  .content {padding:20px;}
+  
