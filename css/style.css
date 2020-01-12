@@ -8,7 +8,7 @@ body {
   
  
   /* Header/Logo Title */
-header {
+.header {
   padding: 20px;
   text-align: front;
   background: cornflowerblue;
