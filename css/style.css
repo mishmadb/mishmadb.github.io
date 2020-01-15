@@ -1,28 +1,32 @@
 /* Style the body */
 body {
+    padding: 20px;
+    text-align: front;
     font-family: Arial;
+    font-size: 20px;
+    background: olive;
+    color: white;
     margin: 0;
-  
 
   }
   
  
   /* Header/Logo Title */
-.header {
-  padding: 20px;
+header {
+  padding: 5px;
   text-align: front;
-  background: cornflowerblue;
-  color: white;
+  background: white;
+  color: bisque;
   font-size: 20px;
 }
 
 
 
 footer {
-  padding: 20px;
+  padding: 5px;
   text-align: center;
-  background: cornflowerblue;
-  color: white;
+  background: white;
+  color: bisque;
   font-size: 20px;
 }
   /* Page Content */
