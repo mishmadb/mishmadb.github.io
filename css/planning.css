@@ -1,0 +1,41 @@
+h1{
+    border: 0px solid black;
+    width: 100%;
+    height: 50px;
+    background-color: cornflowerblue;
+    color: white;
+    padding: 10px;
+    text-align: center;
+    margin: 0;
+}
+
+#foto{
+    position: relative;
+    left: 100px;
+    
+}
+
+#beauty{
+    width: 150px;
+    height: 150px;
+}
+
+
+body {
+    background-color: lightblue;
+   
+  }
+  nav{
+      display: flex;
+      flex-flow: row;
+      justify-content: space-around;
+      
+  }
+  html * {
+      box-sizing:border-box;
+
+  }
+  body{
+      font-size: 16px;
+      font-family: "Sansita", Ubuntu, sans-serif;
+  }
