@@ -18,40 +18,88 @@ header img{
 }
 
 nav {
-    background-color: whitesmoke;
+    background-color: wheat;
     padding: 5px 0;
     display: flex;
     align-items: center;
     justify-content: center;
 }
+.bar1 {
+    border-style:groove;
+    width:300px;
+    margin-right: 100px;
+    margin-left: 100px;
+    background-color: grey;
+  }
+  
+  .bar2 {
+    border-style:groove;
+    width:300px;
+    margin-right: 100px;
+    margin-left: 100px;
+    background-color: grey;
+    
+  }
+  
+  .bar3 {
+    border-style:groove;
+    width:300px;
+    margin-right: 100px;
+    margin-left: 100px;
+    background-color: grey;
+    
+  }
+  
+  .bar3 {
+   display: flex;
+   flex-flow: row;
+   justify-content: space-around;
+  }
 
 body{
     font-family: oswald;
     font-weight: bold;
     font-size: .8em;
     line-height: 1.2;
-    background-color: whitesmoke;
+    background-color: wheat;
   }
 
 /* * {box-sizing: border-box;} */
+
+.locate {
+    border-style:groove;
+    width:650px;
+    margin-right: 150px;
+    margin-left: 150px;
+    background-color: lightgrey;
+  }
+   .locate{
+     display: flex;
+     flex-flow: row;
+     justify-content: space-around;
+    }
+  
+    .wrapper {
+      display: grid;
+      grid-gap: 10px;
+      grid-template-columns: center;
+  
+      }
+  
+  
+  .box2{
+    grid-column:7;
     
-.wrapper  div {
-    border-radius: 5px;
-    background-color: whitesmoke;
-    border-color: black;
-    padding: 1em;
-}
+  }
+  .box6{
+  grid-row:1;
+  }
+  
+  .box9{
+    grid-row: 1;
+  }
 
 
-.box1{
-    border: 2px solid black;
-    box-shadow: 2px 2px #888888;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-
-}
 
 .footing {
     background-color: grey;
@@ -62,14 +110,263 @@ body{
     align-items: center;
   }
 
-.bar1, .bar2, .bar3 {
-  width: 35px;
-  height: 5px;
-  background-color: #333;
-  margin: 6px 0;
-  transition: 0.4s;
+ /********************************
+ * set the page up correctly 
+ ********************************/
+* {
+    box-sizing: border-box;
 }
+
+:root {
+  --main-bg-color: wheat;
+  --dial-color: salmon;
+  --slider-color: black;
+  --component-size: 300px;
+  --inside-width: calc(var(--component-size) * .125);
+  --outside-width: 2em;
+  --inside-position: calc((var(--component-size) * -.5) + 50%);
+  --outside-position: calc((var(--component-size) * -.5) - 50%);
+}
+
+body {
+  background-color: var(--main-bg-color);
+}
+
+/********************************
+ * set the circles for the dial
+ ********************************/
+  .component{
+    width: var(--component-size);
+    height: var(--component-size);
+    position: relative;
+    margin: 3em;
+    display: flex;
+    border-radius: 50%;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    z-index: 100;
+  }
+        
+  .inner {
+    width: calc(var(--component-size) * .75);
+    height: calc(var(--component-size) * .75);
+    background-color: var(--main-bg-color);
+    border-radius: 50%;
+    position: absolute;
+  }
   
+/********************************
+ * the black circle that sits on
+ * top of inner numbers
+ ********************************/
+  .slider {
+    position: absolute;
+    display: block;
+    border-radius: 50%;
+    height: var(--inside-width);
+    width: var(--inside-width);
+    background-color: var(--slider-color);
+    z-index: 89;
+  }
   
+/********************************
+ * the components that make the
+ * top left invisible
+ ********************************/
+.component:before {
+  background: var(--dial-color);
+  height: var(--component-size);
+  width: calc(var(--component-size) / 2);
+  margin: 0;
+  padding: 0;
+  border-radius: var(--component-size) 0 0 var(--component-size);
+  display: block;
+  content: '';
+  position: absolute;
+  transform: rotate(175deg) translateX(calc(var(--component-size) * -.25));
+}
+
+.component:after {
+  background: var(--dial-color);
+  height: var(--component-size);
+  width: calc(var(--component-size) / 2);
+  margin: 0;
+  padding: 0;
+  border-radius: var(--component-size) 0 0 var(--component-size);
+  display: block;
+  content: '';
+  position: absolute;
+  transform: rotate(305deg) translateX(calc(var(--component-size) * -.25));
+  z-index: -1;
+}
+
+ .edge1 {
+    position: absolute;
+    display: block;
+    border-radius: 50%;
+    background-color: var(--dial-color);
+    height: var(--inside-width);
+    width: var(--inside-width);
+    transform: rotate(-5deg) translateY(var(--inside-position));
+  }
+  
+  .edge2 {
+    position: absolute;
+    display: block;
+    border-radius: 50%;
+    background-color: var(--dial-color);
+    height: var(--inside-width);
+    width: var(--inside-width);
+    transform: rotate(305deg) translateY(var(--inside-position));
+  }
+  
+/********************************
+ * css atribute that I want to
+ * apply to all outer elements
+ ********************************/
+  .outer {
+    position: absolute;
+    display: flex;
+    height: var(--outside-width);
+    width: var(--outside-width);
+    font-size: 1.6em;
+    align-items: center;
+    justify-content: center;
+  }
+  
+/********************************
+ * the css attributes that I want
+ * applied to all the inner boxes
+ * that conatin numbers
+ ********************************/
+  .ib {
+    position: absolute;
+    display: flex;
+    height: var(--inside-width);
+    width: var(--inside-width);
+    border-radius: 50%;
+    align-items: center;
+    justify-content: center;
+  }
+
+/********************************
+ * css for middle number or picture
+ ********************************/
+  .center {
+      position: absolute;
+      display: block;
+      font-size: 400%;
+  }
+  
+/********************************
+ * set postitions for the inner numbers
+ ********************************/
+  .i0 {
+    transform: translateY(var(--inside-position));
+  }
+  
+  .i1 {
+    transform: rotate(30deg) translateY(var(--inside-position)) rotate(-30deg);
+  }
+  
+  .i2 {
+    transform: rotate(60deg) translateY(var(--inside-position)) rotate(-60deg);
+  }
+  
+  .i3 {
+    transform: rotate(90deg) translateY(var(--inside-position)) rotate(-90deg);
+  }
+  
+  .i4 {
+    transform: rotate(120deg) translateY(var(--inside-position)) rotate(-120deg);
+  }
+  
+  .i5 {
+    transform: rotate(150deg) translateY(var(--inside-position)) rotate(-150deg);
+  }
+  
+  .i6 {
+    transform: rotate(180deg) translateY(var(--inside-position)) rotate(-180deg);
+  }
+  
+  .i7 {
+    transform: rotate(210deg) translateY(var(--inside-position)) rotate(-210deg);
+  }
+  
+  .i8 {
+    transform: rotate(240deg) translateY(var(--inside-position)) rotate(-240deg);
+  }
+  
+  .i9 {
+    transform: rotate(270deg) translateY(var(--inside-position)) rotate(-270deg);
+  }
+  
+  .i10 {
+    transform: rotate(300deg) translateY(var(--inside-position)) rotate(-300deg);
+  }
+
+/********************************
+ * set postitions for outer
+ * numbers/pictures/icons
+ ********************************/
+  
+  .o0 {
+    transform: rotate(0deg) translateY(var(--outside-position)) rotate(-0deg);
+  }
+  
+  .o1 {
+    transform: rotate(30deg) translateY(var(--outside-position)) rotate(-30deg);
+  }
+  
+  .o2 {
+    transform: rotate(60deg) translateY(var(--outside-position)) rotate(-60deg);
+  }
+  
+  .o3 {
+    transform: rotate(90deg) translateY(var(--outside-position)) rotate(-90deg);
+  }
+  
+  .o4 {
+    transform: rotate(120deg) translateY(var(--outside-position)) rotate(-120deg);
+  }
+  
+  .o5 {
+    transform: rotate(150deg) translateY(var(--outside-position)) rotate(-150deg);
+  }
+  
+  .o6 {
+    transform: rotate(180deg) translateY(var(--outside-position)) rotate(-180deg);
+  }
+  
+  .o7 {
+    transform: rotate(210deg) translateY(var(--outside-position)) rotate(-210deg);
+  }
+  
+  .o8 {
+    transform: rotate(240deg) translateY(var(--outside-position)) rotate(-240deg);
+  }
+  
+  .o9 {
+    transform: rotate(270deg) translateY(var(--outside-position)) rotate(-270deg);
+  }
+  
+  .o10 {
+    transform: rotate(300deg) translateY(var(--outside-position)) rotate(-300deg);
+  }
+
+/********************************
+ * attributes for certain scenarios
+ * not on this page
+ ********************************/
+  .small-percent {
+    font-size: .5em;
+    margin-left: -.5em;
+  }
+
+  .moon {
+    position: absolute;
+    transform: translateY(-.2em);
+  }
 
 
